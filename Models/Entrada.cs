@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace controle_jornada.Models
 {
-    [Table("entrada")]
+    [Table("entradas")]
     public class Entrada
     {
         [Key]
