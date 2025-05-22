@@ -3,10 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace controle_jornada.Models
 {
-    internal class EntradaLocal
-    {
-        [Table("local_entries")]
-        public class LocalEntrie
+
+        [Table("EntradasLocais")]
+        public class EntradaLocal
         {
             [Key]
             public int Id { get; set; }
@@ -16,5 +15,4 @@ namespace controle_jornada.Models
             public DateOnly DataEntrada { get; set; }
             public int Duracao { get; set; }
         }
-    }
 }
