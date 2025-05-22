@@ -15,6 +15,6 @@ namespace controle_jornada.Models
         public DateOnly DataVencimento { get; set; }
         public Projeto Project { get; set; }
 
-        public ICollection<Task> Tarefas { get; set; }
+        public ICollection<Tarefa> Tarefas { get; set; }
     }
 }
