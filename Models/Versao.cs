@@ -13,7 +13,7 @@ namespace controle_jornada.Models
         public string Nome { get; set; }
         public DateOnly DataInicio { get; set; }
         public DateOnly DataVencimento { get; set; }
-        public Projeto Project { get; set; }
+        public Projeto Projeto { get; set; }
 
         public ICollection<Tarefa> Tarefas { get; set; }
     }
