@@ -20,10 +20,10 @@ namespace controle_jornada.Models
         public int Projeto { get; set; }
         public int VersaoId { get; set; }
         public int ProjetoVersaoId { get; set; }
-        //public Versao Versao { get; set; }
+        public Versao Versao { get; set; }
 
-        //public ICollection<Entrada> Entradas { get; set; }
-        //public ICollection<EntradaLocal> EntradasLocais { get; set; }
+        public ICollection<Entrada> Entradas { get; set; }
+        public ICollection<EntradaLocal> EntradasLocais { get; set; }
 
         public Tarefa() { }
     }
