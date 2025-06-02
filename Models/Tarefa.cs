@@ -10,7 +10,7 @@ namespace controle_jornada.Models
         [Key]
         public int Id { get; set; }
         [Key]
-        public int UserId { get; set; }
+        public int UsuarioId { get; set; }
         public string Titulo { get; set; } = string.Empty;
         public string Descricao { get; set; } = string.Empty;
         public TamanhoE Tamanho { get; set; }

@@ -4,14 +4,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace controle_jornada.Models
 {
 
-        [Table("EntradasLocais")]
+        [Table("entradas_locais")]
         public class EntradaLocal
         {
             [Key]
             public int Id { get; set; }
-            public string TarefaId { get; set; }
-            public int tarefaUsuarioId { get; set; }
-            public Task Tarefa { get; set; }
+            public int TarefaId { get; set; }
+            public int TarefaUsuarioId { get; set; }
+            public Tarefa Tarefa { get; set; }
             public DateOnly DataEntrada { get; set; }
             public int Duracao { get; set; }
         }

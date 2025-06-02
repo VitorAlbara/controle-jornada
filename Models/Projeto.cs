@@ -10,6 +10,6 @@ namespace controle_jornada.Models
         public int Id { get; set; }
         public string Nome { get; set; }
 
-        public ICollection<Version> Versoes { get; set; }
+        public ICollection<Versao> Versoes { get; set; }
     }
 }
