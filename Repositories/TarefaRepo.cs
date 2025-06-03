@@ -8,32 +8,32 @@ namespace controle_jornada.Repositories
 {
     public class TarefaRepo
     {
-        private readonly ContextoBanco _contexto = new ContextoBanco();
+        private readonly ContextoBanco  = new ContextoBanco();
         private readonly Usuario _usuario = DadosUsuario.CarregarDadosUsuario();
 
         public async Task<bool> ExistePorVersao(int versaoId)
         {
-            return await _contexto.Tarefas
+            return await .Tarefas
                             .Where(t => t.UsuarioId == _usuario.Id && t.VersaoId == versaoId)
                             .AnyAsync();
         }
         public async Task<bool> Existe(int id)
         {
-            return await _contexto.Tarefas
+            return await .Tarefas
                 .Where(t => t.Id == id && t.UsuarioId == _usuario.Id)
                 .AnyAsync();
         }
 
         public async Task AdicionarIntervalo(List<Tarefa> tarefas)
         {
-            _contexto.Tarefas.AddRange(tarefas);
-            await _contexto.SaveChangesAsync();
+            .Tarefas.AddRange(tarefas);
+            await .SaveChangesAsync();
         }
 
         public async Task Adicionar(Tarefa tarefa)
         {
-            _contexto.Tarefas.Add(tarefa);
-            await _contexto.SaveChangesAsync();
+            .Tarefas.Add(tarefa);
+            await .SaveChangesAsync();
         }
 
         public async Task AdicionarTarefaPorIssue(Issue issue)
@@ -41,7 +41,7 @@ namespace controle_jornada.Repositories
             if (issue == null)
                 throw new ArgumentNullException(nameof(issue), "A issue não pode ser nula!");
 
-            var tarefaExistente = await _contexto.Tarefas
+            var tarefaExistente = await .Tarefas
                 .AsNoTracking()
                 .FirstOrDefaultAsync(t => t.Id == issue.Id);
 
@@ -58,7 +58,7 @@ namespace controle_jornada.Repositories
                 tarefaExistente.Tamanho     = TamanhoEnum.PegarTamanho(issue.Tamanho);
                 tarefaExistente.Status      = issue.Status;
 
-                _contexto.Entry(tarefaExistente).State = EntityState.Modified;
+                .Entry(tarefaExistente).State = EntityState.Modified;
             }
             else
             {
@@ -77,15 +77,15 @@ namespace controle_jornada.Repositories
                   , ProjetoVersaoId = issue.ProjetoId
                 };
 
-                await _contexto.Tarefas.AddAsync(novaTarefa);
+                await .Tarefas.AddAsync(novaTarefa);
             }
 
-            await _contexto.SaveChangesAsync();
+            await .SaveChangesAsync();
         }
 
         public async Task<ICollection<Tarefa>> PegarTodasPorData(DateOnly data)
         {
-            return await _contexto.Tarefas
+            return await .Tarefas
                 .Include(t => t.Entradas)
                 .Include(t => t.EntradasLocais)
                 .Where(t => t.UsuarioId == _usuario.Id
@@ -96,7 +96,7 @@ namespace controle_jornada.Repositories
 
         public async Task<ICollection<Tarefa>> PegarTodasPorVersao(int versaoId)
         {
-            return await _contexto.Tarefas
+            return await .Tarefas
                 .Include(t => t.Entradas)
                 .Include(t => t.EntradasLocais)
                 .Where(t => t.UsuarioId == _usuario.Id && t.VersaoId == versaoId)
@@ -105,14 +105,14 @@ namespace controle_jornada.Repositories
 
         public async Task RemoverIntervalo(List<Tarefa> tarefas)
         {
-            _contexto.Tarefas.RemoveRange(tarefas);
-            await _contexto.SaveChangesAsync();
+            .Tarefas.RemoveRange(tarefas);
+            await .SaveChangesAsync();
         }
 
         public async Task AtualizarIntervalo(List<Tarefa> tarefas)
         {
-            _contexto.Tarefas.UpdateRange(tarefas);
-            await _contexto.SaveChangesAsync();
+            .Tarefas.UpdateRange(tarefas);
+            await .SaveChangesAsync();
         }
     }
 }
