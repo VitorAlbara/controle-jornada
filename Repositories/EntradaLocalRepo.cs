@@ -10,65 +10,59 @@ namespace controle_jornada.Repositories
    public class LocalEntriesRepo
     {
         private readonly ContextoBanco _context = new ContextoBanco();
+        private readonly Usuario _usuario = DadosUsuario.CarregarDadosUsuario();
 
-        public async System.Threading.Tasks.Task Add(EntradaLocal localEntrie)
+        public async Task AdicionarOuAtualizar(EntradaLocal entradaLocal)
         {
-            var existingEntry = await _context.EntradasLocais
+            var entradaExistente = await _context.EntradasLocais
                     .Where(e => e.DataEntrada == DateOnly.FromDateTime(DateTime.Now)
-                            && e.TarefaId == localEntrie.TarefaId
-                            && e.TarefaUsuarioId == localEntrie.TarefaUsuarioId)
+                            && e.TarefaId == entradaLocal.TarefaId
+                            && e.TarefaUsuarioId == entradaLocal.TarefaUsuarioId)
                     .FirstOrDefaultAsync();
 
-            if (existingEntry != null)
+            if (entradaExistente != null)
             {
-                existingEntry.Duracao = localEntrie.Duracao;
-                _context.EntradasLocais.Update(existingEntry);
+                entradaExistente.Duracao = entradaLocal.Duracao;
+                _context.EntradasLocais.Update(entradaExistente);
             }
             else
-                _context.EntradasLocais.Add(localEntrie);
+                _context.EntradasLocais.Add(entradaLocal);
 
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<EntradaLocal>> GetAllPerDate(DateOnly date)
+        public async Task<List<EntradaLocal>> PegarTodosPorData(DateOnly data)
         {
-            var user = DadosUsuario.CarregarDadosUsuario();
-
             return await _context.EntradasLocais
                 .Include(e => e.Tarefa)
-                .Where(e => e.DataEntrada == date && e.TarefaUsuarioId == user.Id)
+                .Where(e => e.DataEntrada == data && e.TarefaUsuarioId == _usuario.Id)
                 .ToListAsync();
         }
 
-
-        public async Task<int> GetTotalTimeByTaskAndDate(int taskId, DateOnly date)
+        public async Task<int> PegarTotalTempoTarefa(int tarefaId, DateOnly data)
         {
-            var user = DadosUsuario.CarregarDadosUsuario();
-
             return await _context.EntradasLocais
                 .Include(e => e.Tarefa)
-                .Where(e => e.TarefaUsuarioId == user.Id
-                        && e.TarefaId == taskId
-                        && e.DataEntrada == date)
+                .Where(e => e.TarefaUsuarioId == _usuario.Id
+                        && e.TarefaId == tarefaId
+                        && e.DataEntrada == data)
                 .SumAsync(e => e.Duracao);
         }
 
-        public async Task<int> GetRealesedTime(DateOnly date)
+        public async Task<int> PegarTempoLancado(DateOnly data)
         {
-            var user = DadosUsuario.CarregarDadosUsuario();
-
             return await _context.EntradasLocais
-                .Where(e => e.DataEntrada == date && e.TarefaUsuarioId == user.Id)
+                .Where(e => e.DataEntrada == data && e.TarefaUsuarioId == _usuario.Id)
                 .SumAsync(e => e.Duracao);
         }
 
-        public async System.Threading.Tasks.Task Delete(int id)
+        public async Task Deletar(int id)
         {
-            var localEntrie = await _context.EntradasLocais.FirstOrDefaultAsync(e => e.Id == id);
+            var entradaLocal = await _context.EntradasLocais.FirstOrDefaultAsync(e => e.Id == id);
 
-            if (localEntrie != null)
+            if (entradaLocal != null)
             {
-                _context.EntradasLocais.Remove(localEntrie);
+                _context.EntradasLocais.Remove(entradaLocal);
                 await _context.SaveChangesAsync();
             }
         }
