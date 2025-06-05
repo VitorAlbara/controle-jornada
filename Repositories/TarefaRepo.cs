@@ -24,6 +24,13 @@ namespace controle_jornada.Repositories
                 .AnyAsync();
         }
 
+        public async Task<bool> ExisteTarefaEstudo()
+        {
+            return await _contexto.Tarefas
+                .Where(t => t.UsuarioId == _usuario.Id && t.Id == -1)
+                .AnyAsync();
+        }
+
         public async Task AdicionarIntervalo(List<Tarefa> tarefas)
         {
             _contexto.Tarefas.AddRange(tarefas);
@@ -49,8 +56,7 @@ namespace controle_jornada.Repositories
             var dataFinal = issue.DataFinal ?? DateOnly.MaxValue;
 
             if (tarefaExistente != null)
-            {
-                
+            {   
                 tarefaExistente.Titulo      = issue.Assunto;
                 tarefaExistente.Descricao   = issue.Descricao ?? "Sem descrição.";
                 tarefaExistente.DataInicial = dataInicial;
