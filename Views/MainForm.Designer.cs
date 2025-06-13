@@ -1,8 +1,4 @@
-﻿using static System.Net.Mime.MediaTypeNames;
-using System.Windows.Forms;
-using System.Xml.Linq;
-
-namespace journey_control.Views
+﻿namespace controle_jornada.Views
 {
     partial class MainForm
     {
@@ -147,7 +143,6 @@ namespace journey_control.Views
             btnAddTask.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnAddTask.FlatStyle = FlatStyle.Flat;
             btnAddTask.ForeColor = Color.FromArgb(218, 218, 218);
-            btnAddTask.Image = Properties.Resources.Resources.icon_add;
             btnAddTask.ImageAlign = ContentAlignment.MiddleLeft;
             btnAddTask.Location = new Point(0, 0);
             btnAddTask.Name = "btnAddTask";
@@ -155,7 +150,6 @@ namespace journey_control.Views
             btnAddTask.TabIndex = 6;
             btnAddTask.Text = "   Adicionar Tarefa";
             btnAddTask.UseVisualStyleBackColor = false;
-            btnAddTask.Click += btnAddTask_Click;
             // 
             // panel9
             // 
@@ -184,7 +178,6 @@ namespace journey_control.Views
             btnRefreshTasks.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnRefreshTasks.FlatStyle = FlatStyle.Flat;
             btnRefreshTasks.ForeColor = Color.FromArgb(218, 218, 218);
-            btnRefreshTasks.Image = Properties.Resources.Resources.icon_refresh;
             btnRefreshTasks.ImageAlign = ContentAlignment.MiddleLeft;
             btnRefreshTasks.Location = new Point(0, 0);
             btnRefreshTasks.Name = "btnRefreshTasks";
@@ -192,7 +185,6 @@ namespace journey_control.Views
             btnRefreshTasks.TabIndex = 7;
             btnRefreshTasks.Text = "   Atualizar Tarefas";
             btnRefreshTasks.UseVisualStyleBackColor = false;
-            btnRefreshTasks.Click += btnRefreshTasks_Click;
             // 
             // panel11
             // 
@@ -230,13 +222,11 @@ namespace journey_control.Views
             btnCalendar.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnCalendar.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnCalendar.FlatStyle = FlatStyle.Flat;
-            btnCalendar.Image = Properties.Resources.Resources.icon_calendar;
             btnCalendar.Location = new Point(144, 27);
             btnCalendar.Name = "btnCalendar";
             btnCalendar.Size = new Size(40, 40);
             btnCalendar.TabIndex = 5;
             btnCalendar.UseVisualStyleBackColor = false;
-            btnCalendar.Click += btnCalendar_Click;
             // 
             // btnNext
             // 
@@ -246,13 +236,11 @@ namespace journey_control.Views
             btnNext.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnNext.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnNext.FlatStyle = FlatStyle.Flat;
-            btnNext.Image = Properties.Resources.Resources.icon_next;
             btnNext.Location = new Point(178, 29);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(40, 40);
             btnNext.TabIndex = 4;
             btnNext.UseVisualStyleBackColor = false;
-            btnNext.Click += btnNext_Click;
             // 
             // lblDate
             // 
@@ -273,13 +261,11 @@ namespace journey_control.Views
             btnPrev.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnPrev.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnPrev.FlatStyle = FlatStyle.Flat;
-            btnPrev.Image = Properties.Resources.Resources.icon_prev;
             btnPrev.Location = new Point(0, 29);
             btnPrev.Name = "btnPrev";
             btnPrev.Size = new Size(40, 40);
             btnPrev.TabIndex = 0;
             btnPrev.UseVisualStyleBackColor = false;
-            btnPrev.Click += btnPrev_Click;
             // 
             // panel2
             // 
@@ -311,7 +297,6 @@ namespace journey_control.Views
             txtTaskSearch.Name = "txtTaskSearch";
             txtTaskSearch.Size = new Size(117, 36);
             txtTaskSearch.TabIndex = 5;
-            txtTaskSearch.TextChanged += txtTaskSearch_TextChanged;
             // 
             // panel4
             // 
@@ -324,7 +309,6 @@ namespace journey_control.Views
             // pictureBox2
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            pictureBox2.Image = Properties.Resources.Resources.icon_search;
             pictureBox2.Location = new Point(0, 25);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(48, 50);
@@ -355,7 +339,6 @@ namespace journey_control.Views
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Left;
-            pictureBox1.Image = Properties.Resources.Resources.icon_user;
             pictureBox1.Location = new Point(58, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(51, 90);
@@ -421,7 +404,6 @@ namespace journey_control.Views
             btnReleaseTasks.TabIndex = 7;
             btnReleaseTasks.Text = "Lançar Tempo";
             btnReleaseTasks.UseVisualStyleBackColor = false;
-            btnReleaseTasks.Click += btnReleaseTasks_Click;
             // 
             // txtAppVersion
             // 
@@ -699,7 +681,6 @@ namespace journey_control.Views
             pnlTaskList.Name = "pnlTaskList";
             pnlTaskList.Size = new Size(1078, 466);
             pnlTaskList.TabIndex = 3;
-            pnlTaskList.Resize += pnlTaskList_Resize;
             // 
             // pnlPaddingL
             // 
@@ -733,7 +714,6 @@ namespace journey_control.Views
             // pictureBox3
             // 
             pictureBox3.Dock = DockStyle.Fill;
-            pictureBox3.Image = Properties.Resources.Resources.icon_loading;
             pictureBox3.Location = new Point(0, 0);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(1078, 466);
