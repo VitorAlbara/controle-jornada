@@ -21,7 +21,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             pnlHeader = new Panel();
             panel10 = new Panel();
             btnAddTask = new Button();
@@ -76,7 +75,6 @@
             pnlTaskList = new FlowLayoutPanel();
             pnlPaddingL = new Panel();
             pnlPaddingR = new Panel();
-            pnlLoading = new Components.Panels.TransparentPanel();
             pictureBox3 = new PictureBox();
             pnlHeader.SuspendLayout();
             panel10.SuspendLayout();
@@ -100,7 +98,6 @@
             panel26.SuspendLayout();
             panel23.SuspendLayout();
             panel25.SuspendLayout();
-            pnlLoading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
@@ -143,6 +140,7 @@
             btnAddTask.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnAddTask.FlatStyle = FlatStyle.Flat;
             btnAddTask.ForeColor = Color.FromArgb(218, 218, 218);
+            btnAddTask.Image = Properties.Resources.icon_add;
             btnAddTask.ImageAlign = ContentAlignment.MiddleLeft;
             btnAddTask.Location = new Point(0, 0);
             btnAddTask.Name = "btnAddTask";
@@ -150,6 +148,7 @@
             btnAddTask.TabIndex = 6;
             btnAddTask.Text = "   Adicionar Tarefa";
             btnAddTask.UseVisualStyleBackColor = false;
+            btnAddTask.Click += btnAddTask_Click;
             // 
             // panel9
             // 
@@ -178,6 +177,7 @@
             btnRefreshTasks.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnRefreshTasks.FlatStyle = FlatStyle.Flat;
             btnRefreshTasks.ForeColor = Color.FromArgb(218, 218, 218);
+            btnRefreshTasks.Image = Properties.Resources.icon_refresh;
             btnRefreshTasks.ImageAlign = ContentAlignment.MiddleLeft;
             btnRefreshTasks.Location = new Point(0, 0);
             btnRefreshTasks.Name = "btnRefreshTasks";
@@ -222,6 +222,7 @@
             btnCalendar.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnCalendar.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnCalendar.FlatStyle = FlatStyle.Flat;
+            btnCalendar.Image = Properties.Resources.icon_calendar;
             btnCalendar.Location = new Point(144, 27);
             btnCalendar.Name = "btnCalendar";
             btnCalendar.Size = new Size(40, 40);
@@ -309,6 +310,7 @@
             // pictureBox2
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            pictureBox2.Image = Properties.Resources.icon_search;
             pictureBox2.Location = new Point(0, 25);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(48, 50);
@@ -339,6 +341,7 @@
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Left;
+            pictureBox1.Image = Properties.Resources.icon_user;
             pictureBox1.Location = new Point(58, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(51, 90);
@@ -698,19 +701,6 @@
             pnlPaddingR.Size = new Size(64, 466);
             pnlPaddingR.TabIndex = 1;
             // 
-            // pnlLoading
-            // 
-            pnlLoading.BackColor = Color.Transparent;
-            pnlLoading.BackgroundColor = Color.Black;
-            pnlLoading.Controls.Add(pictureBox3);
-            pnlLoading.Dock = DockStyle.Fill;
-            pnlLoading.Location = new Point(70, 90);
-            pnlLoading.Name = "pnlLoading";
-            pnlLoading.Opacity = 128;
-            pnlLoading.Size = new Size(1078, 466);
-            pnlLoading.TabIndex = 0;
-            pnlLoading.Visible = false;
-            // 
             // pictureBox3
             // 
             pictureBox3.Dock = DockStyle.Fill;
@@ -727,14 +717,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(28, 23, 23);
             ClientSize = new Size(1212, 689);
-            Controls.Add(pnlLoading);
             Controls.Add(pnlTaskList);
             Controls.Add(pnlPaddingR);
             Controls.Add(pnlPaddingL);
             Controls.Add(pnlHeader);
             Controls.Add(pnlFooter);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -762,7 +750,6 @@
             panel26.ResumeLayout(false);
             panel23.ResumeLayout(false);
             panel25.ResumeLayout(false);
-            pnlLoading.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }

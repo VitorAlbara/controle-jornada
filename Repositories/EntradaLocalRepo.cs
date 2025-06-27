@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace controle_jornada.Repositories
 {
-   public class LocalEntriesRepo
+   public class EntradaLocalRepo
     {
         private readonly ContextoBanco _context = new ContextoBanco();
         private readonly Usuario _usuario = DadosUsuario.CarregarDadosUsuario();

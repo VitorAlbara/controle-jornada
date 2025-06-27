@@ -47,7 +47,7 @@ namespace controle_jornada.Migrations
 
         private async Task<List<ProjetoModel>> PegarProjetosDaApi()
         {
-            var chaveApiUsuario = "f62aa45cac769781b1f04d76824dcc364a2781e1";
+            var chaveApiUsuario = "2d8818ca7e55b4ca2e2885715f1a3b3b69ac1945";
             var urlBase = "https://redmine.questor.com.br";
 
             using (HttpClient cliente = new HttpClient())

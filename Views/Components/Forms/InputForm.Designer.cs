@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputForm));
             panel1 = new Panel();
             panel6 = new Panel();
             panel8 = new Panel();
@@ -208,6 +207,7 @@
             btnCancel.TabIndex = 4;
             btnCancel.Text = "Cancelar";
             btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // btnOk
             // 
@@ -221,6 +221,7 @@
             btnOk.TabIndex = 3;
             btnOk.Text = "OK";
             btnOk.UseVisualStyleBackColor = false;
+            btnOk.Click += btnOk_Click;
             // 
             // panel12
             // 
@@ -424,6 +425,7 @@
             checkCustom.TabIndex = 6;
             checkCustom.Text = "Controlar Data";
             checkCustom.UseVisualStyleBackColor = true;
+            checkCustom.CheckedChanged += checkCustom_CheckedChanged;
             // 
             // panel29
             // 
@@ -541,6 +543,7 @@
             btnCustomCancel.TabIndex = 4;
             btnCustomCancel.Text = "Cancelar";
             btnCustomCancel.UseVisualStyleBackColor = false;
+            btnCustomCancel.Click += btnCustomCancel_Click;
             // 
             // btnCustomOk
             // 
@@ -554,6 +557,7 @@
             btnCustomOk.TabIndex = 3;
             btnCustomOk.Text = "OK";
             btnCustomOk.UseVisualStyleBackColor = false;
+            btnCustomOk.Click += btnCustomOk_Click;
             // 
             // panel22
             // 
@@ -607,7 +611,6 @@
             ClientSize = new Size(384, 307);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "InputForm";

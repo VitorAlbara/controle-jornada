@@ -1,3 +1,6 @@
+using controle_jornada.Helpers.AppData;
+using controle_jornada.Views;
+
 namespace controle_jornada
 {
     internal static class Program
@@ -8,10 +11,25 @@ namespace controle_jornada
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            //Application.Run(new Form1());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            var user = DadosUsuario.CarregarDadosUsuario();
+
+            if (user != null)
+            {
+                Application.Run(new MainForm());
+            }
+            else
+            {
+                using (var apiKeyForm = new ApiKeyForm())
+                {
+                    if (apiKeyForm.ShowDialog() == DialogResult.OK)
+                    {
+                        Application.Run(new MainForm());
+                    }
+                }
+            }
         }
     }
 }

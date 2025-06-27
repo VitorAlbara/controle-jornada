@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReleaseEntriesForm));
             panel1 = new Panel();
             gridEntries = new DataGridView();
             colOk = new DataGridViewCheckBoxColumn();
@@ -91,6 +90,9 @@
             gridEntries.Name = "gridEntries";
             gridEntries.Size = new Size(1268, 371);
             gridEntries.TabIndex = 6;
+            gridEntries.CellClick += gridEntries_CellClick;
+            gridEntries.CellValueChanged += gridEntries_CellValueChanged;
+            gridEntries.CurrentCellDirtyStateChanged += gridEntries_CurrentCellDirtyStateChanged;
             // 
             // colOk
             // 
@@ -259,6 +261,7 @@
             btnReady.TabIndex = 8;
             btnReady.Text = "Pronto";
             btnReady.UseVisualStyleBackColor = false;
+            btnReady.Click += btnReady_Click;
             // 
             // label1
             // 
@@ -317,7 +320,6 @@
             BackColor = Color.FromArgb(28, 23, 23);
             ClientSize = new Size(1408, 562);
             Controls.Add(panel1);
-            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "ReleaseEntriesForm";
