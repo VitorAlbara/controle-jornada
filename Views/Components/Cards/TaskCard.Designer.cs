@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskCard));
             pnlTask = new Panel();
             txtTaskNumber = new Label();
             pnlTime = new Panel();
@@ -74,6 +73,7 @@
             txtTaskNumber.TabIndex = 0;
             txtTaskNumber.Text = "000000";
             txtTaskNumber.TextAlign = ContentAlignment.MiddleCenter;
+            txtTaskNumber.Click += txtTaskNumber_Click;
             // 
             // pnlTime
             // 
@@ -120,15 +120,16 @@
             // 
             // btnTimerControl
             // 
-            btnTimerControl.BackgroundImage = (Image)resources.GetObject("btnTimerControl.BackgroundImage");
             btnTimerControl.BackgroundImageLayout = ImageLayout.Stretch;
             btnTimerControl.Dock = DockStyle.Right;
             btnTimerControl.FlatStyle = FlatStyle.Flat;
+            btnTimerControl.Image = Properties.Resources.icon_clock;
             btnTimerControl.Location = new Point(227, 0);
             btnTimerControl.Name = "btnTimerControl";
             btnTimerControl.Size = new Size(44, 41);
             btnTimerControl.TabIndex = 4;
             btnTimerControl.UseVisualStyleBackColor = true;
+            btnTimerControl.Click += btnTimerControl_Click;
             // 
             // panel1
             // 

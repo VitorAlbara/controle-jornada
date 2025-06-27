@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimeControlForm));
             panel1 = new Panel();
             panel2 = new Panel();
             panel3 = new Panel();
@@ -146,11 +145,13 @@
             btnHome.BackgroundImageLayout = ImageLayout.Stretch;
             btnHome.FlatAppearance.BorderSize = 0;
             btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Image = Properties.Resources.icon_home;
             btnHome.Location = new Point(6, 6);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(146, 67);
             btnHome.TabIndex = 6;
             btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
             // 
             // panel11
             // 
@@ -238,6 +239,7 @@
             txtTaskNumber.TabIndex = 1;
             txtTaskNumber.Text = "202020";
             txtTaskNumber.TextAlign = ContentAlignment.MiddleCenter;
+            txtTaskNumber.Click += txtTaskNumber_Click;
             // 
             // panel6
             // 
@@ -276,11 +278,13 @@
             btnPause.Dock = DockStyle.Left;
             btnPause.FlatAppearance.BorderSize = 0;
             btnPause.FlatStyle = FlatStyle.Flat;
+            btnPause.Image = Properties.Resources.icon_pause;
             btnPause.Location = new Point(84, 0);
             btnPause.Name = "btnPause";
             btnPause.Size = new Size(64, 62);
             btnPause.TabIndex = 7;
             btnPause.UseVisualStyleBackColor = true;
+            btnPause.Click += btnPause_Click;
             // 
             // panel18
             // 
@@ -296,11 +300,13 @@
             btnPlay.Dock = DockStyle.Left;
             btnPlay.FlatAppearance.BorderSize = 0;
             btnPlay.FlatStyle = FlatStyle.Flat;
+            btnPlay.Image = Properties.Resources.icon_play;
             btnPlay.Location = new Point(10, 0);
             btnPlay.Name = "btnPlay";
             btnPlay.Size = new Size(64, 62);
             btnPlay.TabIndex = 5;
             btnPlay.UseVisualStyleBackColor = true;
+            btnPlay.Click += btnPlay_Click;
             // 
             // panel19
             // 
@@ -354,11 +360,11 @@
             Controls.Add(panel4);
             Controls.Add(panel3);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "TimeControlForm";
             StartPosition = FormStartPosition.Manual;
             TopMost = true;
+            FormClosing += TimeControlForm_FormClosing;
             panel5.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel13.ResumeLayout(false);
